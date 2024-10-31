@@ -1,9 +1,9 @@
-# Your Name Here
+# Margaret Hollingshead
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# 10/31/24
+# Lab 07
+# Lab Section: 17
+# Sources, people worked with, help given to: Lab TA's
 # your
 # comments
 # here
@@ -17,7 +17,17 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
+
 factorial = 1
+while True:
+    upper_bound = input('Please input an upper bound:')
+    if upper_bound.isdigit():
+        number= int(upper_bound)
+        while number > 0:
+            factorial = number*factorial
+            number = number - 1
+        break
+
 
 print(f"The result of the factorial based on the given bound is {factorial}")
 
@@ -38,7 +48,18 @@ print("*"*75)
 # The sum should start at 0 
 
 num_sum = 0 
-
+while True:
+    number = input("Please input an integer:")
+    if number.lower() == "exit":
+        break
+    if number[0] == "-":
+        number = number.replace("-", "")
+        neg_number = int(number)
+        num_sum = num_sum - neg_number
+    elif number.isdigit():
+        pos_number = int(number)
+        num_sum = num_sum + pos_number
+        
 print(f"Your final sum is {num_sum}")
 
 print("*"*75)
@@ -59,4 +80,43 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
-        
+while True:
+    expression = input("Please input an expression:")
+    if expression.lower() == "exit":
+        break
+    inpt = expression.replace(" ","")
+    if "+" in inpt:
+        numbs = inpt.split("+")
+        first = numbs[0]
+        second = numbs[1]
+        if first.isdigit() & second.isdigit():
+            sum = int(first) + int(second)
+            print(f'Your solution is {sum}.')
+    elif "-" in inpt:
+        numbs = inpt.split("-")
+        first = numbs[0]
+        second = numbs[1]
+        if first.isdigit() & second.isdigit():
+            sum = int(first) - int(second)
+            print(f'Your solution is {sum}.')
+    if "*" in inpt:
+        numbs = inpt.split("*")
+        first = numbs[0]
+        second = numbs[1]
+        if first.isdigit() & second.isdigit():
+            answer = int(first) * int(second)
+            print(f'Your solution is {answer}.')
+    if "/" in inpt:
+        numbs = inpt.split("/")
+        first = numbs[0]
+        second = numbs[1]
+        if first.isdigit() & second.isdigit():
+            answer = int(first) / int(second)
+            print(f'Your solution is {answer}.')
+    if "%" in inpt:
+        numbs = inpt.split("%")
+        first = numbs[0]
+        second = numbs[1]
+        if first.isdigit() & second.isdigit():
+            answer = int(first) % int(second)
+            print(f'Your solution is {answer}.')
